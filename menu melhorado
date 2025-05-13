@@ -1,1 +1,80 @@
+import java.util.Scanner;
+
+public class menumelhorado {
+    private static double saldo = 0.0;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+
+        do {
+            mostrarMenu();
+            System.out.print("Escolha uma opção: ");
+
+            while (!scanner.hasNextInt()) {
+                System.out.print("Por favor, digite um número válido: ");
+                scanner.next(); // descarta entrada inválida
+            }
+
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    exibirSaldo();
+                    break;
+                case 2:
+                    adicionarReceita(scanner);
+                    break;
+                case 3:
+                    adicionarDespesa(scanner);
+                    break;
+                case 4:
+                    System.out.println("Saindo do aplicativo... Até logo!");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+
+            System.out.println(); // espaço entre interações
+
+        } while (opcao != 4);
+
+        scanner.close();
+    }
+
+    public static void mostrarMenu() {
+        System.out.println("========== MENU FINANCEIRO ==========");
+        System.out.println("1. Ver saldo atual");
+        System.out.println("2. Adicionar receita");
+        System.out.println("3. Adicionar despesa");
+        System.out.println("4. Sair");
+        System.out.println("=====================================");
+    }
+
+    public static void exibirSaldo() {
+        System.out.printf("Saldo atual: R$ %.2f\n", saldo);
+    }
+
+    public static void adicionarReceita(Scanner scanner) {
+        System.out.print("Digite o valor da receita: R$ ");
+        double valor = scanner.nextDouble();
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Receita adicionada com sucesso!");
+        } else {
+            System.out.println("Valor inválido. A receita deve ser positiva.");
+        }
+    }
+
+    public static void adicionarDespesa(Scanner scanner) {
+        System.out.print("Digite o valor da despesa: R$ ");
+        double valor = scanner.nextDouble();
+        if (valor > 0) {
+            saldo -= valor;
+            System.out.println("Despesa registrada com sucesso!");
+        } else {
+            System.out.println("Valor inválido. A despesa deve ser positiva.");
+        }
+    }
+}
 
