@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class CalculadoraDespesas {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double totalDespesas = 0.0;
+        int contador = 1;
+
+        System.out.println("=== CALCULADORA DE DESPESAS MENSAIS ===");
+
+        while (true) {
+            System.out.print("Digite o valor da despesa #" + contador + " (ou 0 para encerrar): R$ ");
+
+            
+            if (!scanner.hasNextDouble()) {
+                System.out.println("Entrada inválida! Digite um número.");
+                scanner.next(); // limpa a entrada inválida
+                continue;
+            }
+
+            double valor = scanner.nextDouble();
+
+            if (valor == 0) {
+                break; 
+            } else if (valor < 0) {
+                System.out.println("Valor inválido. Digite um valor positivo.");
+                continue;
+            }
+
+            totalDespesas += valor;
+            contador++;
+        }
+
+        System.out.println("\nTotal de despesas do mês: R$ " + String.format("%.2f", totalDespesas));
+        scanner.close();
+    }
+}
