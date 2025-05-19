@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class EconomizarDinheiro {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== PLANEJADOR DE ECONOMIA MENSAL ===");
+
+        System.out.print("Digite sua receita mensal (salário): R$ ");
+        double receita = scanner.nextDouble();
+
+        System.out.print("Digite o total das suas despesas mensais: R$ ");
+        double despesas = scanner.nextDouble();
+
+        double metaEconomia = receita * 0.20; // 20% da receita
+        double saldoFinal = receita - despesas;
+
+        System.out.println("\n--- RESULTADO ---");
+        System.out.println("Meta de economia (20% da receita): R$ " + String.format("%.2f", metaEconomia));
+        System.out.println("Saldo final do mês: R$ " + String.format("%.2f", saldoFinal));
+
+        if (saldoFinal >= metaEconomia) {
+            System.out.println("✅ Parabéns! Você atingiu sua meta de economia.");
+        } else if (saldoFinal > 0) {
+            System.out.println("⚠️ Você economizou, mas ficou abaixo da meta.");
+            double falta = metaEconomia - saldoFinal;
+            System.out.println("Tente reduzir R$ " + String.format("%.2f", falta) + " em despesas no próximo mês.");
+        } else {
+            System.out.println("❌ Você gastou mais do que ganhou.");
+            System.out.println("👉 Dica: Reveja gastos fixos, corte supérfluos e defina um teto de despesas.");
+        }
+
+        System.out.println("\n📌 Dicas para economizar:");
+        System.out.println("- Anote todos os gastos diariamente.");
+        System.out.println("- Evite compras por impulso.");
+        System.out.println("- Defina um limite para lazer e alimentação fora.");
+        System.out.println("- Use listas de compras no supermercado.");
+        System.out.println("- Prefira pagar à vista e evite dívidas.");
+
+        scanner.close();
+    }
+}
