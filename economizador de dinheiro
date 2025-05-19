@@ -21,14 +21,14 @@ public class EconomizarDinheiro {
         System.out.println("Saldo final do mês: R$ " + String.format("%.2f", saldoFinal));
 
         if (saldoFinal >= metaEconomia) {
-            System.out.println("✅ Parabéns! Você atingiu sua meta de economia.");
+            System.out.println(" Parabéns! Você atingiu sua meta de economia.");
         } else if (saldoFinal > 0) {
-            System.out.println("⚠️ Você economizou, mas ficou abaixo da meta.");
+            System.out.println("⚠ Você economizou, mas ficou abaixo da meta.");
             double falta = metaEconomia - saldoFinal;
             System.out.println("Tente reduzir R$ " + String.format("%.2f", falta) + " em despesas no próximo mês.");
         } else {
-            System.out.println("❌ Você gastou mais do que ganhou.");
-            System.out.println("👉 Dica: Reveja gastos fixos, corte supérfluos e defina um teto de despesas.");
+            System.out.println(" Você gastou mais do que ganhou.");
+            System.out.println(" Dica: Reveja gastos fixos, corte supérfluos e defina um teto de despesas.");
         }
 
         System.out.println("\n📌 Dicas para economizar:");
